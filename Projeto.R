@@ -23,3 +23,10 @@ head(shp_br)
 ## Exploradinha
 arrange(shp_br, desc(VarPerc))
 arrange(shp_br, desc(Pop2022))
+
+## Minas Gerais
+shp_mg = filter(shp_br, nam_stt == 'Minas Gerais')
+head(shp_mg)
+
+
+ggplot
