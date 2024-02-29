@@ -13,6 +13,7 @@ library('sf')
 library('ggplot2')
 library('ggspatial')
 library('dplyr')
+library('RColorBrewer')
 
 ## Ler o nosso shapefile no R!!
 
@@ -29,4 +30,12 @@ shp_mg = filter(shp_br, nam_stt == 'Minas Gerais')
 head(shp_mg)
 
 
-ggplot
+ggplot(data = shp_mg, aes(x = Pop2022, y = Pop2010)) + 
+  geom_point() + 
+  geom_line()
+
+
+### Plotando os Mapas
+ggplot() + 
+  geom_sf(data = shp_mg, col = 'black', linewidth = 0.1, aes(fill = VarPerc)) + 
+  scale_fill_gradientn( colors = brewer.pal(name = "Spectral", n = 11)  )
